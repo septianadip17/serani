@@ -1,74 +1,130 @@
+import {
+  FaCommentDots,
+  FaPhoneAlt,
+  FaLaughSquint,
+  FaVideo,
+  FaMoon,
+  FaHeartBroken,
+  FaHeart,
+  FaRing,
+} from "react-icons/fa";
 import StorySection from "./components/StorySection";
 import LoveLetter from "./components/LoveLetter";
 import Proposal from "./components/Proposal";
-import ScrollIndicator from "./components/ScrollIndicator";
 import Gallery from "./components/Gallery";
+
+const AnimatedHearts = () => {
+  return (
+    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      {[...Array(10)].map((_, i) => (
+        <span
+          key={i}
+          className="heart"
+          style={{
+            left: `${Math.random() * 100}%`,
+            bottom: `${Math.random() * 100}px`,
+            animationDelay: `${Math.random() * 10}s`,
+            fontSize: `${Math.random() * 2 + 1.5}rem`,
+          }}
+        >
+          💗
+        </span>
+      ))}
+    </div>
+  );
+};
 
 function App() {
   const stories = [
     {
-      title: "The First Time We Talked",
-      text: "I was nervous, you were sweet. That moment stuck with me forever.",
-      emoji: "💬",
+      title: "How We Met",
+      text: "It started from a simple chat, but something about you felt special from the very beginning.",
+      icon: FaCommentDots,
+      image: "/photos/chat-pertama.jpeg",
+      imagePosition: "right",
     },
     {
-      title: "Our First Call",
-      text: "Your laugh made me smile like an idiot. I didn’t want to hang up.",
-      emoji: "📞",
+      title: "First Time I Heard You",
+      text: "Your voice instantly calmed me. That phone call changed everything.",
+      icon: FaPhoneAlt,
+      image: "/photos/first-call.jpeg",
+      imagePosition: "left",
     },
     {
-      title: "Inside Jokes",
-      text: "‘Gendut Lucu’ still makes me giggle every time I remember.",
-      emoji: "😂",
+      title: "Our Little Jokes",
+      text: "Gendut Lucu, Nasi Padang, Jatuh-Jatuh — those silly moments became treasures.",
+      icon: FaLaughSquint,
+      image: "/photos/jokes.jpeg",
+      imagePosition: "right",
     },
     {
-      title: "When I Missed You",
-      text: "Some nights I wished I could teleport just to see you smile.",
-      emoji: "🌙",
+      title: "Our First Video Call",
+      text: "Seeing your smile on screen made me wish I could reach through it and hug you.",
+      icon: FaVideo,
+      image: "/photos/video-call.jpeg",
+      imagePosition: "left",
     },
     {
-      title: "The Day I Realized I Like You",
-      text: "I didn’t plan it, it just happened. You made my world feel lighter.",
-      emoji: "💖",
+      title: "Late Night Talks",
+      text: "Those deep talks at night made me feel safe. I never wanted them to end.",
+      icon: FaMoon,
+      image: "/photos/late-night.jpeg",
+      imagePosition: "right",
+    },
+    {
+      title: "Missing You",
+      text: "Even just a day without your voice felt like something was missing.",
+      icon: FaHeartBroken,
+      image: "/photos/miss-you.jpeg",
+      imagePosition: "left",
+    },
+    {
+      title: "The Moment I Fell",
+      text: "I didn’t even realize I was falling for you — it just felt so natural.",
+      icon: FaHeart,
+      image: "/photos/fall-in-love.jpeg",
+      imagePosition: "right",
+    },
+    {
+      title: "Today",
+      text: "And now, here we are. I gathered all my courage to say what’s been in my heart.",
+      icon: FaRing,
+      image: "/photos/proposal.jpeg",
+      imagePosition: "center",
     },
   ];
 
   return (
-    <main className="bg-blush min-h-screen p-4">
-      <section className="text-center mt-10">
-        <h1 className="text-5xl font-script text-rose-600 mb-6">
-          Our Story, Raney
-        </h1>
-        <p className="text-gray-700 font-body max-w-xl mx-auto">
-          A little memory lane of us — every scroll tells a piece of my heart.
-        </p>
-      </section>
+    <div className="min-h-screen bg-pink-gradient bg-[length:400%_400%] animate-gradient-move">
+      <main className="bg-pink-100 min-h-screen p-4">
+        <section className="text-center mt-10">
+          <h1 className="text-5xl font-script text-rose-600 mb-6">
+            Hai, Raney Raniy wkwkwk
+          </h1>
+          <p className="text-gray-700 font-body max-w-xl mx-auto">
+            A little memory lane of us — every scroll tells a piece of my heart.
+          </p>
+        </section>
 
-      <section className="text-center mt-10">
-        <h1 className="text-5xl font-script text-rose-600 mb-6">
-          Our Story, Raney
-        </h1>
-        <p className="text-gray-700 font-body max-w-xl mx-auto">
-          A little memory lane of us — every scroll tells a piece of my heart.
-        </p>
-        <ScrollIndicator />
-      </section>
+        <section>
+          {stories.map((story, index) => (
+            <StorySection
+              key={index}
+              title={story.title}
+              text={story.text}
+              icon={story.icon}
+              image={story.image}
+              imagePosition={story.imagePosition}
+            />
+          ))}
+        </section>
+        <AnimatedHearts />
 
-      <section>
-        {stories.map((story, i) => (
-          <StorySection
-            key={i}
-            title={story.title}
-            text={story.text}
-            emoji={story.emoji}
-          />
-        ))}
-      </section>
-      
-      <Gallery />
-      <LoveLetter />
-      <Proposal />
-    </main>
+        <Gallery />
+        <LoveLetter />
+        <Proposal />
+      </main>
+    </div>
   );
 }
 

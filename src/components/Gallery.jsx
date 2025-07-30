@@ -1,7 +1,8 @@
 function Gallery() {
   const photos = [
-    "/photos/gbk-1.HEIC",
-    "/photos/gbk-2.HEIC",
+    "/photos/gbk-berdua.jpeg",
+    "/photos/di-motor-2.jpeg",
+    "/photos/di-motor-1.jpeg",
   ];
 
   return (

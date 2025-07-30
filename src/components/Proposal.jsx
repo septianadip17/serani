@@ -18,7 +18,7 @@ function Proposal() {
 
   const handleYesClick = () => {
     setShowConfetti(true);
-    setTimeout(() => setShowConfetti(false), 5000); // Confetti lasts 5 seconds
+    setTimeout(() => setShowConfetti(false), 5000); 
   };
 
   return (

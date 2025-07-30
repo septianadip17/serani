@@ -1,16 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    /* your files */
+  ],
   theme: {
     extend: {
-      colors: {
-        blush: "#ffe4e6",
-        pinky: "#fbcfe8",
-        rose: "#fda4af",
+      backgroundImage: {
+        "pink-gradient":
+          "linear-gradient(-45deg, #fbc2eb, #fcd1d1, #fda085, #ff9a9e)",
       },
-      fontFamily: {
-        script: ['"Dancing Script"', "cursive"],
-        body: ['"Poppins"', "sans-serif"],
+      animation: {
+        "gradient-move": "gradient 15s ease infinite",
+      },
+      keyframes: {
+        gradient: {
+          "0%, 100%": {
+            backgroundPosition: "0% 50%",
+          },
+          "50%": {
+            backgroundPosition: "100% 50%",
+          },
+        },
       },
     },
   },
