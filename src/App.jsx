@@ -12,6 +12,9 @@ import StorySection from "./components/StorySection";
 import LoveLetter from "./components/LoveLetter";
 import Proposal from "./components/Proposal";
 import Gallery from "./components/Gallery";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const AnimatedHearts = () => {
   return (
@@ -35,12 +38,18 @@ const AnimatedHearts = () => {
 };
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800, 
+      once: true, 
+    });
+  }, []);
   const stories = [
     {
       title: "How We Met",
       text: "It started from a simple chat, but something about you felt special from the very beginning.",
       icon: FaCommentDots,
-      image: "/photos/chat-pertama.jpeg",
+      image: ["/photos/chat-pertama.jpeg", "/photos/ig-chat.png"],
       imagePosition: "right",
     },
     {
