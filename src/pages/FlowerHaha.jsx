@@ -98,7 +98,7 @@ const FlowerHaha = () => {
 
       {/* Audio */}
       <audio id="myAudio" autoPlay loop>
-        <source src="/public/music/bg-music-flower.mp3" type="audio/mp3" />
+        <source src="/music/bg-music-flower.mp3" type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
 
