@@ -93,29 +93,51 @@ const moments = [
 
 export default function StorySection() {
   return (
-    <section className="py-16 bg-gradient-to-b from-peach-100 to-pink-100">
+    <section className="py-16 bg-gradient-to-b from-pink-50 to-pink-100 relative">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-pink-600 font-[Dancing Script]">
         Perjalanan Kita ✨
       </h2>
-      <div className="max-w-3xl mx-auto space-y-6 px-4">
-        {moments.map((m, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, x: i % 2 === 0 ? -100 : 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-2xl shadow-lg p-4 md:p-6 flex items-center space-x-4"
-          >
-            <div className="text-3xl">{m.emoji}</div>
-            <div>
-              <p className="text-sm text-gray-500">{m.date}</p>
-              <p className="text-lg md:text-xl font-semibold text-pink-700">
-                {m.title}
-              </p>
-            </div>
-          </motion.div>
-        ))}
+
+      {/* Garis tengah */}
+      <div className="absolute left-1/2 top-0 w-1 h-full bg-pink-300 transform -translate-x-1/2"></div>
+
+      <div className="max-w-4xl mx-auto space-y-12 px-4 relative z-10">
+        {moments.map((m, i) => {
+          const isLeft = i % 2 === 0; // zig-zag
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: isLeft ? -100 : 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className={`flex ${
+                isLeft ? "justify-start" : "justify-end"
+              } w-full`}
+            >
+              <div
+                className={`bg-white rounded-2xl shadow-lg p-4 md:p-6 w-5/6 md:w-1/2 relative`}
+              >
+                {/* Titik di garis */}
+                <div
+                  className={`absolute top-6 ${
+                    isLeft ? "-right-4" : "-left-4"
+                  } w-6 h-6 rounded-full bg-pink-500 border-4 border-white shadow`}
+                ></div>
+
+                <div className="flex items-start space-x-3">
+                  <div className="text-3xl">{m.emoji}</div>
+                  <div>
+                    <p className="text-sm text-gray-500">{m.date}</p>
+                    <p className="text-lg md:text-xl font-semibold text-pink-700">
+                      {m.title}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );
