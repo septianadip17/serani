@@ -2,9 +2,8 @@
 import { useEffect, useState } from "react";
 
 export default function LoveLetter() {
-  const message = `Rani, sejak pertama kali kita kenal, aku merasa ada sesuatu yang berbeda. 
-  Setiap momen sama kamu selalu berharga, entah itu ngobrol receh, jalan bareng, atau sekadar ketawa bareng.
-  
+  const message = `Ran, kayanya kita udah terlalu kedeketan ga si, aku ngerasanya si gitu, harusnya kamu juga si hahaha. 
+    
   Hari ini aku mau jujur... aku nggak cuma suka, tapi aku benar-benar sayang sama kamu. ❤️`;
 
   const [displayedText, setDisplayedText] = useState("");

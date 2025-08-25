@@ -18,20 +18,18 @@ export default function Proposal() {
         Rani ❤️
       </h1>
       <p className="text-lg md:text-2xl mb-10">
-        Mau nggak jadi pasangan hidupku? 🥹
+        May i be your boyfriend? HAHAHAHA🥹
       </p>
 
       {!answer ? (
         <div className="relative flex gap-6">
-          {/* Tombol Iya */}
           <button
             onClick={() => setAnswer("yes")}
             className="bg-pink-500 text-white font-semibold px-6 py-3 rounded-2xl shadow-lg hover:bg-pink-600 transition"
           >
-            Iya ❤️
+            Yes! 🥰
           </button>
 
-          {/* Tombol Enggak */}
           <button
             onMouseEnter={handleNoHover}
             style={{
@@ -39,13 +37,13 @@ export default function Proposal() {
             }}
             className="absolute bg-gray-300 text-gray-700 font-semibold px-6 py-3 rounded-2xl shadow-lg transition"
           >
-            Enggak 😆
+            G! 😆
           </button>
         </div>
       ) : (
         <div className="mt-10">
           <h2 className="text-2xl md:text-4xl font-bold text-pink-600">
-            Yeaay! Aku sayang kamu ❤️🎉
+            Yeaay! Aku sayang kamu
           </h2>
         </div>
       )}

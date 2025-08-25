@@ -9,10 +9,24 @@ function App() {
   return (
     <div className=" mx-auto font-sans">
       <Navbar />
-      <Landing />
-      <StorySection />
-      <GallerySection />
-      <LoveLetter />
+      <div className="pt-20">
+        {" "}
+        {/* biar konten ga ketutup navbar */}
+        <section id="home">
+          <Landing />
+        </section>
+        <section id="story">
+          <StorySection />
+        </section>
+        <section id="gallery">
+          <GallerySection />
+        </section>
+        <section
+          id="jadigini"
+        >
+          <LoveLetter />
+        </section>
+      </div>
       <Proposal />
     </div>
   );
