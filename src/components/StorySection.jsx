@@ -13,7 +13,7 @@ export default function StorySection() {
       {/* Wrapper untuk judul */}
       <div className="relative max-w-4xl mx-auto px-4 z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-pink-600 font-[Dancing Script]">
-          Perjalanan Kita ✨
+          Perjalanan Kita Coy ✨
         </h2>
       </div>
 

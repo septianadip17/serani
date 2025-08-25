@@ -72,9 +72,9 @@ export default function Proposal() {
       ) : (
         <div className="mt-10">
           <h2 className="text-2xl md:text-4xl font-bold text-pink-600">
-            Yeaay! Aku sayang kamu. <br /> Nih buat bunga buat kamu{" "}
+            Yeaay! Akhirnya resmi yeee. <br /> Nih bunga buat kamu{" "}
             <Link to="/flower">
-              <button className="mt-4 px-6 py-2 text-white rounded-md hover:bg-pink-600 transition">
+              <button className="mt-4 px-6 py-2 text-white rounded-md hover:bg-pink-200 transition duration-500 hover:scale-125 hover:rotate-90 font-[Dancing Script] text-2xl">
                 🌸🌸🌸
               </button>
             </Link>
