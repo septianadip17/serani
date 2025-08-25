@@ -7,16 +7,24 @@ export default function StorySection() {
       className="py-28 bg-gradient-to-b from-pink-50 to-pink-100 relative"
       id="story"
     >
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-pink-600 font-[Dancing Script]">
-        Perjalanan Kita ✨
-      </h2>
+      {/* Center line */}
+      <div className="absolute left-1/2 top-56 bottom-0 w-1 bg-pink-300 transform -translate-x-1/2 z-0"></div>
 
-      {/* Garis tengah */}
-      <div className="absolute left-1/2 top-0 w-1 h-full bg-pink-300 transform -translate-x-1/2"></div>
+      {/* Wrapper untuk judul */}
+      <div className="relative max-w-4xl mx-auto px-4 z-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-pink-600 font-[Dancing Script]">
+          Perjalanan Kita ✨
+        </h2>
+      </div>
 
-      <div className="max-w-4xl mx-auto space-y-12 px-4 relative z-10">
+      {/* Timeline items */}
+      <div className="max-w-4xl mx-auto px-4 relative z-10 space-y-12 flex flex-col md:flex-col">
         {moments.map((m, i) => (
-          <TimelineItem key={i} {...m} isLeft={i % 2 === 0} />
+          <TimelineItem
+            key={i}
+            {...m}
+            isLeft={i % 2 === 0} // tetap kiri-kanan
+          />
         ))}
       </div>
     </section>

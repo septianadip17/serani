@@ -16,7 +16,7 @@ export default function GallerySection() {
   const getRandomRowSpan = () => Math.floor(Math.random() * 2) + 1;
 
   return (
-    <section className="py-28 px-6 bg-pink-50" id="gallery">
+    <section className="py-28 px-6 bg-pink-50" id="gallery" >
       <h2 className="text-3xl font-bold text-center text-pink-600 mb-10 font-[Dancing Script]">
         Galeri Kenangan Kita 📸
       </h2>

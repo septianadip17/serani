@@ -20,11 +20,6 @@ export default function LoveLetter() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-pink-100 to-pink-50 px-6 relative">
-      {/* Background music */}
-      <audio controls autoPlay loop className="absolute top-4 right-4">
-        <source src="/music/bg-music.mp3" type="audio/mp3" />
-      </audio>
-
       <div className="max-w-2xl text-center">
         <p className="whitespace-pre-line text-lg md:text-2xl leading-relaxed text-pink-700 font-medium">
           {displayedText}
