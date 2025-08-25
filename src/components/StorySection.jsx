@@ -93,7 +93,7 @@ const moments = [
 
 export default function StorySection() {
   return (
-    <section className="py-16 bg-gradient-to-b from-pink-50 to-pink-100 relative">
+    <section className="py-16 bg-gradient-to-b from-pink-50 to-pink-100 relative" id="story">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-pink-600 font-[Dancing Script]">
         Perjalanan Kita ✨
       </h2>
