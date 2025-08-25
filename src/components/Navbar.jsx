@@ -44,6 +44,12 @@ export default function Navbar() {
           >
             Jadi Gini
           </button>
+          <button
+            onClick={() => handleScroll("nahgitu")}
+            className="hover:text-pink-200 transition"
+          >
+            Nah Gitu
+          </button>
         </div>
 
         {/* Mobile button */}
@@ -81,6 +87,12 @@ export default function Navbar() {
             className="block hover:text-pink-200 transition"
           >
             Jadi Gini
+          </button>
+          <button
+            onClick={() => handleScroll("nahgitu")}
+            className="block hover:text-pink-200 transition"
+          >
+            Nah Gitu
           </button>
         </div>
       )}

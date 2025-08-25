@@ -26,13 +26,17 @@ export default function Proposal() {
 
   const handleNoClick = () => {
     const randomIndex = Math.floor(Math.random() * messages.length);
-
     Swal.fire({
       title: messages[randomIndex],
       icon: "error",
-      confirmButtonText: "Oke deh 😅",
+      confirmButtonText: "huft 😅",
       confirmButtonColor: "#f87171",
       background: "#fff7ed",
+      customClass: {
+        popup: "max-w-[90vw] sm:max-w-[400px] rounded-xl p-4 text-center",
+        title: "text-base sm:text-sm font-semibold mb-2",
+        confirmButton: "px-6 py-2 rounded-lg",
+      },
     });
   };
 
@@ -68,13 +72,13 @@ export default function Proposal() {
       ) : (
         <div className="mt-10">
           <h2 className="text-2xl md:text-4xl font-bold text-pink-600">
-            Yeaay! Aku sayang kamu. <br /> Nih buat bunga buat kamu <Link to="/flower">
-            <button className="mt-4 px-6 py-2 text-white rounded-md hover:bg-pink-600 transition">
-              🌸🌸🌸
-            </button>
-          </Link>
+            Yeaay! Aku sayang kamu. <br /> Nih buat bunga buat kamu{" "}
+            <Link to="/flower">
+              <button className="mt-4 px-6 py-2 text-white rounded-md hover:bg-pink-600 transition">
+                🌸🌸🌸
+              </button>
+            </Link>
           </h2>
-          
         </div>
       )}
     </div>

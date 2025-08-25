@@ -10,24 +10,24 @@ function Home() {
   return (
     <div className=" mx-auto font-sans">
       <Navbar />
-      <div className="pt-20">
-        {" "}
+      <div className="mx-auto">
         <section id="home">
           <Landing />
         </section>
         <section id="story">
           <StorySection />
         </section>
-        <section id="gallery">
+        <section id="gallery" >
           <GallerySection />
         </section>
-        <section
-          id="jadigini"
-        >
+        <section id="jadigini">
           <LoveLetter />
         </section>
+        <section id="nahgitu">
+          <Proposal />
+        </section>
       </div>
-      <Proposal />
+
       <Footer />
     </div>
   );
