@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 export default function Proposal() {
   const [answer, setAnswer] = useState(null);
@@ -67,13 +68,13 @@ export default function Proposal() {
       ) : (
         <div className="mt-10">
           <h2 className="text-2xl md:text-4xl font-bold text-pink-600">
-            Yeaay! Aku sayang kamu. Nih buat kamu ❤️
+            Yeaay! Aku sayang kamu. <br /> Nih buat bunga buat kamu <Link to="/flower">
+            <button className="mt-4 px-6 py-2 text-white rounded-md hover:bg-pink-600 transition">
+              🌸🌸🌸
+            </button>
+          </Link>
           </h2>
-          <button
           
-          >
-            Yes! 🥰
-          </button>
         </div>
       )}
     </div>
