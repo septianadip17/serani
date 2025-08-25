@@ -13,7 +13,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-lg z-50">
+    <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-pink-500 to-pink-700 text-white shadow-lg z-50">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <div className="text-2xl font-bold tracking-wide">HiRani</div>

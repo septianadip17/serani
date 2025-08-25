@@ -4,6 +4,7 @@ import LoveLetter from "../components/LoveLetter.jsx";
 import Proposal from "../components/Proposal.jsx";
 import GallerySection from "../components/GallerySection.jsx";
 import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
 
 function Home() {
   return (
@@ -27,6 +28,7 @@ function Home() {
         </section>
       </div>
       <Proposal />
+      <Footer />
     </div>
   );
 }
