@@ -1,14 +1,42 @@
-function LoveLetter() {
+// src/components/LoveLetter.jsx
+import { useEffect, useState } from "react";
+
+export default function LoveLetter() {
+  const message = `Rani, sejak pertama kali kita kenal, aku merasa ada sesuatu yang berbeda. 
+  Setiap momen sama kamu selalu berharga, entah itu ngobrol receh, jalan bareng, atau sekadar ketawa bareng.
+  
+  Hari ini aku mau jujur... aku nggak cuma suka, tapi aku benar-benar sayang sama kamu. ❤️`;
+
+  const [displayedText, setDisplayedText] = useState("");
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (index < message.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText((prev) => prev + message[index]);
+        setIndex(index + 1);
+      }, 50); // kecepatan typing
+      return () => clearTimeout(timeout);
+    }
+  }, [index, message]);
+
   return (
-    <div className="text-center p-6 my-10 bg-pinky rounded-lg shadow-lg max-w-2xl mx-auto">
-      <h2 className="text-3xl font-script text-rose-500 mb-4">Dear Raney,</h2>
-      <p className="font-body text-gray-800 leading-relaxed">
-        I know I don’t have gold or diamonds to offer,<br />
-        but I have something only I can give you—this love,<br />
-        crafted from memories, moments, and everything we’ve shared.
-      </p>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-pink-100 to-pink-50 px-6 relative">
+      {/* Background music */}
+      <audio controls autoPlay loop className="absolute top-4 right-4">
+        <source src="/music/bg-music.mp3" type="audio/mp3" />
+      </audio>
+
+      <div className="max-w-2xl text-center">
+        <p className="whitespace-pre-line text-lg md:text-2xl leading-relaxed text-pink-700 font-medium">
+          {displayedText}
+        </p>
+        {index >= message.length && (
+          <p className="mt-8 text-pink-500 animate-bounce">
+            ⬇️ Scroll ke bawah ⬇️
+          </p>
+        )}
+      </div>
     </div>
   );
 }
-
-export default LoveLetter;

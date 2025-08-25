@@ -15,6 +15,7 @@ import Gallery from "./components/Gallery";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import Landing from "./components/Landing";
 
 const AnimatedHearts = () => {
   return (
@@ -129,6 +130,7 @@ function App() {
         </section>
         <AnimatedHearts />
 
+        <Landing />
         <Gallery />
         <LoveLetter />
         <Proposal />
