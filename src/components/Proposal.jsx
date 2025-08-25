@@ -69,7 +69,11 @@ export default function Proposal() {
           <h2 className="text-2xl md:text-4xl font-bold text-pink-600">
             Yeaay! Aku sayang kamu. Nih buat kamu ❤️
           </h2>
+          <button
           
+          >
+            Yes! 🥰
+          </button>
         </div>
       )}
     </div>
