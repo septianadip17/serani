@@ -1,10 +1,25 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { motion, useAnimation } from "framer-motion";
 
 export default function Proposal() {
   const [answer, setAnswer] = useState(null);
   const [noBtnPos, setNoBtnPos] = useState({ x: 0, y: 0 });
+
+  const controls = useAnimation();
+
+  const handleHoverStart = () => {
+    controls.start({
+      rotate: [0, 360],
+      transition: { repeat: Infinity, ease: "linear", duration: 2 },
+    });
+  };
+
+  const handleHoverEnd = () => {
+    controls.stop();
+    controls.set({ rotate: 0 }); // reset posisi
+  };
 
   // Generate random position for no button
   const handleNoHover = () => {
@@ -72,11 +87,17 @@ export default function Proposal() {
       ) : (
         <div className="mt-10">
           <h2 className="text-2xl md:text-4xl font-bold text-pink-600">
-            Yeaay! Akhirnya resmi yeee. <br /> Nih bunga buat kamu{" "}
+            Yeaay! Akhirnya resmi yeee. <br /> Nih bunga buat kamu
             <Link to="/flower">
-              <button className="mt-4 px-6 py-2 text-white rounded-md hover:bg-pink-200 transition duration-500 hover:scale-125 hover:rotate-90 font-[Dancing Script] text-2xl">
+              <motion.button
+                onHoverStart={handleHoverStart}
+                onHoverEnd={handleHoverEnd}
+                animate={controls}
+                whileTap={{ scale: 0.95 }}
+                className="mt-4 px-6 py-2 text-white hover:bg-pink-200 hover:rounded-full font-[Dancing Script] text-2xl rounded-md"
+              >
                 🌸🌸🌸
-              </button>
+              </motion.button>
             </Link>
           </h2>
         </div>
