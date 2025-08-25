@@ -46,14 +46,14 @@ function App() {
   }, []);
   const stories = [
     {
-      title: "How We Met",
+      title: "Lucu amat yak",
       text: "It started from a simple chat, but something about you felt special from the very beginning.",
       icon: FaCommentDots,
       image: ["/photos/chat-pertama.jpeg", "/photos/ig-chat.png"],
       imagePosition: "right",
     },
     {
-      title: "First Time I Heard You",
+      title: "",
       text: "Your voice instantly calmed me. That phone call changed everything.",
       icon: FaPhoneAlt,
       image: "/photos/first-call.jpeg",
