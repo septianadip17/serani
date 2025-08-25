@@ -7,6 +7,9 @@ export default {
         "pink-gradient":
           "linear-gradient(-45deg, #fbc2eb, #fcd1d1, #fda085, #ff9a9e)",
       },
+      fontFamily: {
+        sans: ["Poppins", "sans-serif"],
+      },
     },
   },
   plugins: [],
