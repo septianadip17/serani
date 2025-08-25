@@ -1,4 +1,3 @@
-// src/components/LoveLetter.jsx
 import { useEffect, useState } from "react";
 
 export default function LoveLetter() {
@@ -14,7 +13,7 @@ export default function LoveLetter() {
       const timeout = setTimeout(() => {
         setDisplayedText((prev) => prev + message[index]);
         setIndex(index + 1);
-      }, 50); // kecepatan typing
+      }, 50);
       return () => clearTimeout(timeout);
     }
   }, [index, message]);
@@ -29,12 +28,7 @@ export default function LoveLetter() {
       <div className="max-w-2xl text-center">
         <p className="whitespace-pre-line text-lg md:text-2xl leading-relaxed text-pink-700 font-medium">
           {displayedText}
-        </p>
-        {index >= message.length && (
-          <p className="mt-8 text-pink-500 animate-bounce">
-            ⬇️ Scroll ke bawah ⬇️
-          </p>
-        )}
+      </p>
       </div>
     </div>
   );

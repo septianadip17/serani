@@ -1,24 +1,47 @@
-// src/components/Proposal.jsx
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function Proposal() {
   const [answer, setAnswer] = useState(null);
   const [noBtnPos, setNoBtnPos] = useState({ x: 0, y: 0 });
 
+  // Generate random position for no button
   const handleNoHover = () => {
-    // Biar tombol "Enggak" kabur ke posisi random
     const randomX = Math.floor(Math.random() * 200 - 100);
     const randomY = Math.floor(Math.random() * 200 - 100);
     setNoBtnPos({ x: randomX, y: randomY });
   };
 
+  const messages = [
+    "Yah masa nolak sih 😝",
+    "Eits jangan gitu dong 😳",
+    "Aku serius loh ini HAHAHA",
+    "Nggak boleh nolak yaa 😏",
+    "Pleaseee kasih aku kesempatan ✨",
+    "Yailah tega amat si 😢",
+    "Ayo deh bilang iya aja 😉",
+    "Coba pikirin dulu lagi 🥺",
+  ];
+
+  const handleNoClick = () => {
+    const randomIndex = Math.floor(Math.random() * messages.length);
+
+    Swal.fire({
+      title: messages[randomIndex],
+      icon: "error",
+      confirmButtonText: "Oke deh 😅",
+      confirmButtonColor: "#f87171",
+      background: "#fff7ed",
+    });
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center text-center bg-pink-50 px-4">
       <h1 className="text-3xl md:text-5xl font-bold text-pink-600 mb-6">
-        Rani ❤️
+        Ran,
       </h1>
       <p className="text-lg md:text-2xl mb-10">
-        May i be your boyfriend? HAHAHAHA🥹
+        May i be your boyfriend? HAHAHAHAHA
       </p>
 
       {!answer ? (
@@ -32,6 +55,7 @@ export default function Proposal() {
 
           <button
             onMouseEnter={handleNoHover}
+            onClick={handleNoClick}
             style={{
               transform: `translate(${noBtnPos.x}px, ${noBtnPos.y}px)`,
             }}
@@ -43,8 +67,9 @@ export default function Proposal() {
       ) : (
         <div className="mt-10">
           <h2 className="text-2xl md:text-4xl font-bold text-pink-600">
-            Yeaay! Aku sayang kamu
+            Yeaay! Aku sayang kamu. Nih buat kamu ❤️
           </h2>
+          
         </div>
       )}
     </div>
