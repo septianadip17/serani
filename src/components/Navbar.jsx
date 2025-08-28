@@ -63,7 +63,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 80, damping: 20 }}
-            className="fixed top-0 right-0 h-full w-2/4  bg-gradient-to-r from-pink-700 to-pink-400 shadow-2xl p-6 md:hidden z-40"
+            className="fixed top-0 right-0 h-full w-2/4 bg-linear-65 from-purple-500 to-pink-500 shadow-2xl p-6 md:hidden z-40"
           >
             {/* Close button inside */}
             <button
