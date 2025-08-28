@@ -1,16 +1,30 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import {
+  Menu,
+  X,
+  Home,
+  BookOpen,
+  Image,
+  MessageCircle,
+  Star,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Tambahin icon + description
   const menuItems = [
-    { id: "home", label: "Home" },
-    { id: "story", label: "Story" },
-    { id: "gallery", label: "Gallery" },
-    { id: "jadigini", label: "Jadi Gini" },
-    { id: "nahgitu", label: "Nah Gitu" },
+    { id: "home", label: "Home", icon: Home, desc: "Halaman utama" },
+    { id: "story", label: "Story", icon: BookOpen, desc: "Kisah perjalanan" },
+    { id: "gallery", label: "Gallery", icon: Image, desc: "Koleksi foto" },
+    {
+      id: "jadigini",
+      label: "Jadi Gini",
+      icon: MessageCircle,
+      desc: "Cerita menarik",
+    },
+    { id: "nahgitu", label: "Nah Gitu", icon: Star, desc: "Highlight spesial" },
   ];
 
   const handleScroll = (id) => {
@@ -21,14 +35,21 @@ export default function Navbar() {
     }
   };
 
-  const NavLink = ({ id, label, isMobile }) => (
+  // NavLink sudah support icon + desc
+  const NavLink = ({ id, label, icon: Icon, desc, isMobile }) => (
     <button
       onClick={() => handleScroll(id)}
-      className={`hover:text-pink-200 transition ${
-        isMobile ? "block w-full text-left text-lg" : ""
+      className={`hover:text-pink-200 transition flex items-center gap-3 ${
+        isMobile ? "w-full text-left" : ""
       }`}
     >
-      {label}
+      {Icon && <Icon size={22} />}
+      <div className="flex flex-col items-start">
+        <span className="text-lg font-semibold">{label}</span>
+        {isMobile && desc && (
+          <span className="text-sm text-pink-100">{desc}</span>
+        )}
+      </div>
     </button>
   );
 
@@ -54,52 +75,66 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu (slide from right) */}
+      {/* Overlay + Mobile menu (slide from right) */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            key="mobileMenu"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", stiffness: 80, damping: 20 }}
-            className="fixed top-0 right-0 h-full w-2/4 bg-linear-65 from-purple-500 to-pink-500 shadow-2xl p-6 md:hidden z-40"
-          >
-            {/* Close button inside */}
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-white"
-            >
-              <X size={28} />
-            </button>
-
-            {/* Menu items with slight slide-down animation */}
+          <>
+            {/* Overlay */}
             <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={{
-                hidden: { opacity: 0, y: -20 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { staggerChildren: 0.1 },
-                },
-              }}
-              className="mt-12 space-y-6"
+              key="overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black md:hidden z-30"
+              onClick={() => setIsOpen(false)}
+            />
+
+            {/* Sidebar */}
+            <motion.div
+              key="mobileMenu"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 80, damping: 20 }}
+              className="fixed top-0 right-0 h-full w-2/4 bg-gradient-to-br from-pink-700 to-pink-500 shadow-2xl p-6 md:hidden z-40"
             >
-              {menuItems.map((item) => (
-                <motion.div
-                  key={item.id}
-                  variants={{
-                    hidden: { opacity: 0, y: -20 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                >
-                  <NavLink {...item} isMobile />
-                </motion.div>
-              ))}
+              {/* Close button inside */}
+              <button
+                onClick={() => setTimeout(() => setIsOpen(false), 40)}
+                className="absolute top-4 right-4 text-white"
+              >
+                <X size={28} />
+              </button>
+
+              {/* Menu items */}
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: { opacity: 0, y: -20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { staggerChildren: 0.1 },
+                  },
+                }}
+                className="mt-20 space-y-6"
+              >
+                {menuItems.map((item) => (
+                  <motion.div
+                    key={item.id}
+                    variants={{
+                      hidden: { opacity: 0, y: -30 },
+                      visible: { opacity: 1, y: 0 },
+                    }}
+                  >
+                    <NavLink {...item} isMobile />
+                  </motion.div>
+                ))}
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>
