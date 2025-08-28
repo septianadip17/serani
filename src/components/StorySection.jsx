@@ -1,5 +1,6 @@
 import moments from "../data/moments";
 import TimelineItem from "./TimelineItem";
+import { Sailboat } from "lucide-react";
 
 export default function StorySection() {
   return (
@@ -13,7 +14,7 @@ export default function StorySection() {
       {/* Wrapper untuk judul */}
       <div className="relative max-w-4xl mx-auto px-4 z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-pink-600 font-[Dancing Script]">
-          Perjalanan Kita Coy ✨
+          Perjalanan Kita Coy <Sailboat className="inline-block mb-1" />
         </h2>
       </div>
 

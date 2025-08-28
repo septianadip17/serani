@@ -1,5 +1,6 @@
 // src/components/Landing.jsx
 import { motion } from "framer-motion";
+import { CornerRightDown } from "lucide-react";
 
 export default function Landing() {
   return (
@@ -21,7 +22,7 @@ export default function Landing() {
         transition={{ duration: 1, delay: 1, ease: "easeOut" }}
         className="text-base sm:text-lg md:text-2xl text-pink-700 max-w-xl"
       >
-        aku buat website ini kayanya si iseng aja😜
+        aku buat website ini buat ngobrol aja si ke kamu😜
       </motion.p>
 
       {/* Animated hearts */}
@@ -49,7 +50,7 @@ export default function Landing() {
         transition={{ delay: 2, duration: 1 }}
         className="absolute bottom-8 text-pink-500 animate-bounce text-sm sm:text-base md:text-lg"
       >
-        kamu masih inget ini ga sih? 👇
+        kamu masih inget ini ga sih? <CornerRightDown className="inline-block ml-1" />
       </motion.div>
     </div>
   );

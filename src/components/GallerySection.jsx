@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import photos  from "../data/photos";
+import { Images } from "lucide-react";
 
 export default function GallerySection() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -18,7 +19,7 @@ export default function GallerySection() {
   return (
     <section className="py-28 px-6 bg-pink-50" id="gallery" >
       <h2 className="text-3xl font-bold text-center text-pink-600 mb-10 font-[Dancing Script]">
-        Galeri Kita 📸
+        Galeri Kita <Images className="inline-block mb-1" />
       </h2>
 
       <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[150px]">
