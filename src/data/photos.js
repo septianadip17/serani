@@ -2,24 +2,24 @@ const photos = [
   {
     id: 1,
     url: "/photos/chat-pertama.jpeg",
-    moment: "Chat",
+    moment: "Random",
     caption: "Kenal di game kan kita? wkwk😝",
   },
   {
     id: 2,
     url: "/photos/chat-pertama-ig.png",
-    moment: "Chat",
+    moment: "Random",
     caption: "Lah udah pindah ke IG aja 😳",
   },
   {
     id: 3,
     url: "/photos/13-juni.jpeg",
-    moment: "Cantik",
+    moment: "Random",
     caption: "Pertemuan pertama ☕️",
   },
   {
     id: 4,
-    url: "/photos/first-Kita.jpeg",
+    url: "/photos/first-selfie.jpeg",
     moment: "Kita",
     caption: "Kita bareng pertama 🤳",
   },
@@ -94,7 +94,7 @@ const photos = [
     id: 17,
     url: "/photos/tj-2.jpeg",
     moment: "Kita",
-    caption: "BKita bareng 🚍",
+    caption: "Nyobain make kacamata 😎",
   },
   {
     id: 18,
@@ -136,19 +136,19 @@ const photos = [
     id: 24,
     url: "/photos/rani-declip.jpeg",
     moment: "Cantik",
-    caption: "Nails & clips 💅",
+    caption: "beli jepitan declip 🎗",
   },
   {
     id: 25,
     url: "/photos/rani-jasujan.jpeg",
     moment: "Cantik",
-    caption: "Jas hujan unyu ☔️",
+    caption: "Make jas ujan unyu soalnya masih make beatpop ☔️",
   },
   {
     id: 26,
     url: "/photos/kita-jasujan.jpeg",
     moment: "Kita",
-    caption: "Jas hujan bareng ☔️",
+    caption: "Jas ujanan dulu, soalnya belom punya brio ☔️",
   },
   {
     id: 27,
@@ -195,19 +195,19 @@ const photos = [
   {
     id: 34,
     url: "/photos/rani-bunga.jpeg",
-    moment: "Spesial",
+    moment: "Cantik",
     caption: "Yeay Dapet bunga 🌹",
   },
   {
     id: 35,
     url: "/photos/rani-bunga2.jpeg",
-    moment: "Spesial",
+    moment: "Cantik",
     caption: "Bunga ada Meesnya 💐",
   },
   {
     id: 36,
     url: "/photos/rani-grad.jpeg",
-    moment: "Spesial",
+    moment: "Cantik",
     caption: "Cantiknya pas wisuda 🎓",
   },
   {
@@ -239,6 +239,30 @@ const photos = [
     url: "/photos/rani-ngambek1.jpeg",
     moment: "Kita",
     caption: "Ngambek unyu 😅",
+  },
+  {
+    id: 42,
+    url: "/photos/vc-1.jpeg",
+    moment: "Cantik",
+    caption: "Lucu bener si 😂",
+  },
+  {
+    id: 43,
+    url: "/photos/vc-2.jpeg",
+    moment: "Cantik",
+    caption: "Gemesin bener si 😂",
+  },
+  {
+    id: 44,
+    url: "/photos/31juli-6.jpeg",
+    moment: "Makan",
+    caption: "Makan ricis kan pedes yak 🥵",
+  },
+  {
+    id: 45,
+    url: "/photos/28juli-2.jpeg",
+    moment: "Cantik",
+    caption: "Nunjukin foto aku yg ganteng 😎",
   },
 ];
 export default photos;

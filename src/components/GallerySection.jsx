@@ -31,7 +31,6 @@ export default function GallerySection() {
     });
   }, [q, tag]);
 
-  // esc & panah untuk navigasi
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") setSelectedIndex(null);
@@ -48,30 +47,8 @@ export default function GallerySection() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedIndex, filtered.length]);
 
-  // tombol back to top muncul setelah scroll
-  useEffect(() => {
-    const onScroll = () => setShowTop(window.scrollY > 400);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const goTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
   return (
     <section className="py-28 px-6 bg-pink-50" id="gallery">
-      {/* Scrollbar styling */}
-      <style>{`
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: rgba(0,0,0,.05); }
-        ::-webkit-scrollbar-thumb {
-          background: linear-gradient(180deg,#ec4899,#f472b6);
-          border-radius: 999px;
-        }
-        ::-webkit-scrollbar-thumb:hover { filter: brightness(.9); }
-        .masonry { column-gap: 1rem; }
-        .masonry-col { break-inside: avoid; }
-      `}</style>
-
       <h2 className="text-3xl font-bold text-center text-pink-600 mb-10 font-[Dancing Script]">
         Galeri Kita <Images className="inline-block mb-1" />
       </h2>
@@ -146,7 +123,7 @@ export default function GallerySection() {
             onClick={() => setSelectedIndex(null)}
           >
             <motion.div
-              className="bg-white rounded-2xl p-4 max-w-lg w-[90%] relative"
+              className="bg-white rounded-2xl p-4 max-w-md w-[70%] relative"
               initial={{ scale: 0.9, y: 10 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 10 }}
@@ -154,7 +131,7 @@ export default function GallerySection() {
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className="absolute top-2 right-2 text-gray-600 hover:text-pink-600"
+                className="absolute top-2 right-1 text-gray-600 hover:text-pink-600"
                 onClick={() => setSelectedIndex(null)}
               >
                 <X />
@@ -193,21 +170,6 @@ export default function GallerySection() {
               </button>
             </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* back to top */}
-      <AnimatePresence>
-        {showTop && (
-          <motion.button
-            className="fixed bottom-6 right-6 z-50 rounded-full p-3 bg-pink-500 text-white shadow-lg hover:bg-pink-600 transition"
-            onClick={goTop}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 16 }}
-          >
-            ↑
-          </motion.button>
         )}
       </AnimatePresence>
     </section>
