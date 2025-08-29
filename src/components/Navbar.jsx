@@ -13,11 +13,20 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Tambahin icon + description
   const menuItems = [
     { id: "home", label: "Home", icon: Home, desc: "Halo Ran wkwk" },
-    { id: "story", label: "Story", icon: BookOpen, desc: "Kenangan Ketemu Nih" },
-    { id: "gallery", label: "Gallery", icon: Image, desc: "Foto-Foto Asoy Kita" },
+    {
+      id: "story",
+      label: "Story",
+      icon: BookOpen,
+      desc: "Kenangan Ketemu Nih",
+    },
+    {
+      id: "gallery",
+      label: "Gallery",
+      icon: Image,
+      desc: "Foto-Foto Asoy Kita",
+    },
     {
       id: "jadigini",
       label: "Jadi Gini",
@@ -28,7 +37,7 @@ export default function Navbar() {
       id: "nahgitu",
       label: "Nah Gitu",
       icon: HeartHandshake,
-      desc: "Oke Sip",
+      desc: "Oke Yeh",
     },
   ];
 
@@ -40,7 +49,6 @@ export default function Navbar() {
     }
   };
 
-  // NavLink sudah support icon + desc
   const NavLink = ({ id, label, icon: Icon, desc, isMobile }) => (
     <button
       onClick={() => handleScroll(id)}
@@ -101,7 +109,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 80, damping: 20 }}
-              className="fixed top-0 right-0 h-full w-2/4 bg-gradient-to-br from-pink-500  to-pink-200 shadow-2xl p-6 md:hidden z-40"
+              className="fixed top-0 right-0 h-full w-2/4 bg-gradient-to-br from-pink-800  to-pink-500 shadow-2xl p-6 md:hidden z-40"
             >
               {/* Close button inside */}
               <button
