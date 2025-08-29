@@ -14,7 +14,6 @@ export default function TimelineItem({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Pastikan photo selalu array
   const photos = Array.isArray(photo) ? photo : [photo];
 
   const openModal = (index) => {
@@ -32,7 +31,6 @@ export default function TimelineItem({
     setCurrentIndex((prev) => (prev + 1) % photos.length);
   };
 
-  // Keyboard listener (ESC untuk close, arrow untuk navigasi)
   useEffect(() => {
     if (!isModalOpen) return;
 
@@ -56,7 +54,6 @@ export default function TimelineItem({
         className={`flex ${isLeft ? "justify-start" : "justify-end"} w-full`}
       >
         <div className="bg-white rounded-2xl shadow-lg p-3 md:p-6 w-1/2 relative">
-          {/* Titik di garis */}
           <div
             className={`absolute top-6 ${
               isLeft ? "-right-4" : "-left-4"

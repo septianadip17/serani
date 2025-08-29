@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { Gem } from "lucide-react";
 
 export default function LoveLetter() {
   const message = `Ran, kayanya kita udah terlalu kedeketan ga si, aku ngerasanya si gitu, harusnya kamu juga si hahaha. 
@@ -46,7 +47,10 @@ Aku pengen kita gini terus cuma resmi WKWKWKWK.
       ref={ref}
       className="min-h-screen flex items-center justify-center bg-gradient-to-b from-pink-100 to-pink-50 px-6 relative"
     >
-      <div className="max-w-3xl text-center">
+      <div className="max-w-3xl flex flex-col items-center text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-pink-600 font-[Dancing Script]">
+          Jadi Gini <Gem className="inline-block mb-1" />
+        </h2>
         <p className="whitespace-pre-line text-base md:text-2xl leading-relaxed text-pink-700 font-normal">
           {displayedText}
         </p>

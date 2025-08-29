@@ -57,6 +57,8 @@ export default function Proposal() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center text-center bg-pink-50 px-4">
+     
+
       <h1 className="text-3xl md:text-5xl font-bold text-pink-600 mb-6">
         Ran,
       </h1>

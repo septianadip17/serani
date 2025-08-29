@@ -21,7 +21,7 @@ const photos = [
     id: 4,
     url: "/photos/first-selfie.jpeg",
     moment: "Kita",
-    caption: "Kita bareng pertama 🤳",
+    caption: "Selfie pertama 🤳",
   },
   {
     id: 5,
@@ -214,7 +214,7 @@ const photos = [
     id: 37,
     url: "/photos/rani-tj.jpeg",
     moment: "Cantik",
-    caption: "Naik bKita TJ 🚏",
+    caption: "Naik TJ kita balik 🚏",
   },
   {
     id: 38,
@@ -263,6 +263,36 @@ const photos = [
     url: "/photos/28juli-2.jpeg",
     moment: "Cantik",
     caption: "Nunjukin foto aku yg ganteng 😎",
+  },
+  {
+    id: 46,
+    url: "/photos/28juli-5.jpeg",
+    moment: "Kita",
+    caption: "Dicekek nih 😵‍💫",
+  },
+  {
+    id: 47,
+    url: "/photos/16juli-2.jpeg",
+    moment: "Kita",
+    caption: "Ogah bangat diajak potonyan 😤",
+  },
+  {
+    id: 48,
+    url: "/photos/31juli-1.jpeg",
+    moment: "Kita",
+    caption: "Jemput abis balik kerja 🚗",
+  },
+  {
+    id: 49,
+    url: "/photos/31juli-3.jpeg",
+    moment: "Cantik",
+    caption: "Belanja apansi 🛒",
+  },
+  {
+    id: 50,
+    url: "/photos/27juli-2.jpeg",
+    moment: "Cantik",
+    caption: "Poto di samping kali belakang mall 📸",
   },
 ];
 export default photos;

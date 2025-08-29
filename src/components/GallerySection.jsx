@@ -13,7 +13,6 @@ export default function GallerySection() {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [q, setQ] = useState("");
   const [tag, setTag] = useState("All");
-  const [showTop, setShowTop] = useState(false);
 
   const tags = useMemo(
     () => ["All", ...Array.from(new Set(photos.map((p) => p.moment)))],
@@ -46,6 +45,12 @@ export default function GallerySection() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedIndex, filtered.length]);
+
+  // fungsi navigasi
+  const nextPhoto = () =>
+    setSelectedIndex((prev) => (prev + 1) % filtered.length);
+  const prevPhoto = () =>
+    setSelectedIndex((prev) => (prev - 1 + filtered.length) % filtered.length);
 
   return (
     <section className="py-28 px-6 bg-pink-50" id="gallery">
@@ -123,7 +128,7 @@ export default function GallerySection() {
             onClick={() => setSelectedIndex(null)}
           >
             <motion.div
-              className="bg-white rounded-2xl p-4 max-w-md w-[70%] relative"
+              className="bg-white rounded-2xl p-4 max-w-md w-[70%] relative overflow-hidden"
               initial={{ scale: 0.9, y: 10 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 10 }}
@@ -140,21 +145,33 @@ export default function GallerySection() {
               {/* Tombol kiri */}
               <button
                 className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow"
-                onClick={() =>
-                  setSelectedIndex(
-                    (prev) => (prev - 1 + filtered.length) % filtered.length
-                  )
-                }
+                onClick={prevPhoto}
               >
                 <ChevronLeft className="text-pink-600" />
               </button>
 
-              {/* Foto */}
-              <img
+              {/* Foto dengan swipe gesture */}
+              <motion.img
+                key={filtered[selectedIndex].id}
                 src={filtered[selectedIndex].url}
                 alt={filtered[selectedIndex].caption}
                 className="rounded-xl w-full object-cover"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={(e, info) => {
+                  if (info.offset.x > 100) {
+                    prevPhoto();
+                  } else if (info.offset.x < -100) {
+                    nextPhoto();
+                  }
+                }}
+                initial={{ x: 0, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
               />
+
               <p className="mt-3 text-center text-gray-700 font-medium">
                 {filtered[selectedIndex].caption}
               </p>
@@ -162,9 +179,7 @@ export default function GallerySection() {
               {/* Tombol kanan */}
               <button
                 className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow"
-                onClick={() =>
-                  setSelectedIndex((prev) => (prev + 1) % filtered.length)
-                }
+                onClick={nextPhoto}
               >
                 <ChevronRight className="text-pink-600" />
               </button>
