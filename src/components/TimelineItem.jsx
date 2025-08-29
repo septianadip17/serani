@@ -78,7 +78,7 @@ export default function TimelineItem({
                     key={i}
                     src={p}
                     alt={`${title}-${i}`}
-                    className="w-20 h-20 md:w-32 md:h-32 rounded-lg object-cover cursor-pointer hover:scale-105 transition"
+                    className="w-16 h-16 md:w-32 md:h-32 rounded-lg object-cover cursor-pointer hover:scale-105 transition"
                     onClick={() => openModal(i)}
                   />
                 ))}
