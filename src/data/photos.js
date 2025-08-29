@@ -3,13 +3,13 @@ const photos = [
     id: 1,
     url: "/photos/chat-pertama.jpeg",
     date: "Awal Kenal",
-    caption: "Chat pertama 💌",
+    caption: "Kenal di game kan kita? wkwk😝",
   },
   {
     id: 2,
-    url: "/photos/ig-chat.png",
+    url: "/photos/chat-pertama-ig.png",
     date: "Awal Kenal",
-    caption: "Mulai dari DM 😳",
+    caption: "Lah udah pindah ke IG aja 😳",
   },
   {
     id: 3,
