@@ -12,19 +12,19 @@ export default function Proposal() {
   const handleHoverStart = () => {
     controls.start({
       rotate: [0, 360],
-      transition: { repeat: Infinity, ease: "linear", duration: 2 },
+      transition: { repeat: Infinity, ease: "linear", duration: 6 },
     });
   };
 
   const handleHoverEnd = () => {
     controls.stop();
-    controls.set({ rotate: 0 }); // reset posisi
+    controls.set({ rotate: 0 });
   };
 
   // Generate random position for no button
   const handleNoHover = () => {
-    const randomX = Math.floor(Math.random() * 200 - 100);
-    const randomY = Math.floor(Math.random() * 200 - 100);
+    const randomX = Math.floor(Math.random() * 300 - 200);
+    const randomY = Math.floor(Math.random() * 300 - 200);
     setNoBtnPos({ x: randomX, y: randomY });
   };
 
@@ -85,21 +85,26 @@ export default function Proposal() {
           </button>
         </div>
       ) : (
-        <div className="mt-10">
+        <div className="mt-10 text-center">
           <h2 className="text-2xl md:text-4xl font-bold text-pink-600">
             Yeaay! Akhirnya resmi yeee. <br /> Nih bunga buat kamu
-            <Link to="/flower">
-              <motion.button
-                onHoverStart={handleHoverStart}
-                onHoverEnd={handleHoverEnd}
-                animate={controls}
-                whileTap={{ scale: 0.95 }}
-                className="mt-4 px-6 py-2 text-white hover:bg-pink-200 hover:rounded-full font-[Dancing Script] text-2xl rounded-md"
-              >
-                🌸🌸🌸
-              </motion.button>
-            </Link>
           </h2>
+
+          <Link to="/flower">
+            <motion.button
+              onHoverStart={handleHoverStart}
+              onHoverEnd={handleHoverEnd}
+              animate={controls}
+              whileTap={{ scale: 1.5 }}
+              className="mt-6 px-2 py-2 text-white hover:bg-pink-200 hover:rounded-full font-[Dancing Script] text-2xl rounded-md"
+            >
+              <img
+                src="/photos/bunga-iay.png"
+                alt="Bunga"
+                className="w-20 mx-auto md:w-32 transition-transform duration-300 hover:scale-150 drop-shadow-lg"
+              />
+            </motion.button>
+          </Link>
         </div>
       )}
     </div>
