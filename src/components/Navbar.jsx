@@ -67,7 +67,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-gradient-to-br from-pink-500 to-pink-700 text-white shadow-lg z-50">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <div className="text-2xl font-bold tracking-wide">HiRani</div>
 
@@ -109,7 +109,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 80, damping: 20 }}
-              className="fixed top-0 right-0 h-full w-2/4 bg-gradient-to-br from-pink-800  to-pink-500 shadow-2xl p-6 md:hidden z-40"
+              className="fixed top-0 right-0 h-full w-3/5 bg-gradient-to-br from-pink-800  to-pink-500 shadow-2xl p-6 md:hidden z-40"
             >
               {/* Close button inside */}
               <button

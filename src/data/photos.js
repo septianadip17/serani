@@ -224,7 +224,7 @@ const photos = [
   },
   {
     id: 39,
-    url: "/photos/cantikk.jpeg",
+    url: "/photos/cantik1.jpeg",
     moment: "Random",
     caption: "Manis maksimal 💖",
   },
