@@ -5,6 +5,7 @@ import { ArrowUp } from "lucide-react";
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
 
+  // cek posisi scroll
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.scrollY > 300) {
