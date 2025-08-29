@@ -5,6 +5,7 @@ import Proposal from "../components/Proposal.jsx";
 import GallerySection from "../components/GallerySection.jsx";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
+import BackToTop from "../components/BackToTop.jsx";
 
 function Home() {
   return (
@@ -17,7 +18,7 @@ function Home() {
         <section id="story">
           <StorySection />
         </section>
-        <section id="gallery" >
+        <section id="gallery">
           <GallerySection />
         </section>
         <section id="jadigini">
@@ -28,6 +29,7 @@ function Home() {
         </section>
       </div>
 
+      <BackToTop />
       <Footer />
     </div>
   );
