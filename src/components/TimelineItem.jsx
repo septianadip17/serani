@@ -1,5 +1,7 @@
-import { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 export default function TimelineItem({
   date,
@@ -10,6 +12,39 @@ export default function TimelineItem({
   isLeft,
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Pastikan photo selalu array
+  const photos = Array.isArray(photo) ? photo : [photo];
+
+  const openModal = (index) => {
+    setCurrentIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => setIsModalOpen(false);
+
+  const showPrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + photos.length) % photos.length);
+  };
+
+  const showNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % photos.length);
+  };
+
+  // Keyboard listener (ESC untuk close, arrow untuk navigasi)
+  useEffect(() => {
+    if (!isModalOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isModalOpen]);
 
   return (
     <>
@@ -36,20 +71,21 @@ export default function TimelineItem({
                 {title}
               </p>
 
-              {photo && (
-                <>
+              {/* Show Photos */}
+              <div className="flex gap-2 mt-2 flex-wrap">
+                {photos.map((p, i) => (
                   <img
-                    src={photo}
-                    alt={title}
-                    className="w-20 h-20 md:w-32 md:h-32 mt-2 rounded-lg object-cover cursor-pointer hover:scale-105 transition"
-                    onClick={() => setIsModalOpen(true)}
+                    key={i}
+                    src={p}
+                    alt={`${title}-${i}`}
+                    className="w-20 h-20 md:w-32 md:h-32 rounded-lg object-cover cursor-pointer hover:scale-105 transition"
+                    onClick={() => openModal(i)}
                   />
-                  {desc && (
-                    <p className="text-xs md:text-sm text-gray-500 mt-1">
-                      {desc}
-                    </p>
-                  )}
-                </>
+                ))}
+              </div>
+
+              {desc && (
+                <p className="text-xs md:text-sm text-gray-500 mt-1">{desc}</p>
               )}
             </div>
           </div>
@@ -59,23 +95,46 @@ export default function TimelineItem({
       {/* Modal */}
       {isModalOpen && (
         <div
-          className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4"
-          onClick={() => setIsModalOpen(false)}
+          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+          onClick={closeModal}
         >
           <div
-            className="bg-white rounded-2xl p-4 max-w-md w-full md:max-w-lg relative"
+            className="bg-white rounded-2xl p-4 max-w-2xl w-full relative"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Tombol close */}
             <button
-              className="absolute top-2 right-2 text-gray-600 hover:text-pink-600 text-xl"
-              onClick={() => setIsModalOpen(false)}
+              className="absolute top-2 right-2 text-gray-600 hover:text-pink-600 text-2xl"
+              onClick={closeModal}
             >
-              ✖
+              <X />
             </button>
+
+            {/* Tombol Prev */}
+            {photos.length > 1 && (
+              <button
+                className="absolute top-1/2 left-2 -translate-y-1/2 bg-white/70 rounded-full p-2 hover:bg-white shadow"
+                onClick={showPrev}
+              >
+                <ChevronLeft size={24} />
+              </button>
+            )}
+
+            {/* Tombol Next */}
+            {photos.length > 1 && (
+              <button
+                className="absolute top-1/2 right-2 -translate-y-1/2 bg-white/70 rounded-full p-2 hover:bg-white shadow"
+                onClick={showNext}
+              >
+                <ChevronRight size={24} />
+              </button>
+            )}
+
+            {/* Foto */}
             <img
-              src={photo}
-              alt={title}
-              className="rounded-xl w-full object-cover max-h-[80vh]"
+              src={photos[currentIndex]}
+              alt={`${title}-${currentIndex}`}
+              className="rounded-xl w-full object-contain max-h-[80vh]"
             />
           </div>
         </div>
