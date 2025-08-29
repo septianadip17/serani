@@ -36,7 +36,7 @@ export default function GallerySection() {
               className="rounded-xl shadow-lg w-full object-cover"
             />
             <p className="absolute bottom-2 left-2 bg-white/70 text-xs px-2 py-1 rounded">
-              {photo.date}
+              {photo.moment}
             </p>
           </motion.div>
         ))}
